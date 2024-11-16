@@ -11,6 +11,7 @@ router.get('/all-recipes',recipeController.getAllRecipesController)
 router.post('/add-testimony',testimonyController.addTestimonyController)
 //register
 router.post('/register',userController.registerController)
-
+//login
+router.post('/login',userController.loginController)
 
 module.exports = router
