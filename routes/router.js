@@ -2,6 +2,7 @@ const express = require('express')
 const recipeController = require('../controllers/recipeController')
 const testimonyController = require('../controllers/testimonyController')
 const userController = require('../controllers/userController')
+const jwtMiddleware = require('../middlewares/jwtMiddleware')
 
 const router = new express.Router()
 
@@ -13,5 +14,7 @@ router.post('/add-testimony',testimonyController.addTestimonyController)
 router.post('/register',userController.registerController)
 //login
 router.post('/login',userController.loginController)
+//view-recipe
+router.get('/recipe/:id/view',jwtMiddleware,recipeController.getARecipeController)
 
 module.exports = router

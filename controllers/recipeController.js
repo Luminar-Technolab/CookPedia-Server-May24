@@ -10,3 +10,15 @@ exports.getAllRecipesController = async (req,res)=>{
         res.status(401).json(err)
     }
 }
+
+//getARecipes
+exports.getARecipeController = async (req,res)=>{
+    console.log("inside getARecipeController");
+    const {id} = req.params
+    try{
+        const viewRecipe = await recipes.findOne({_id:id})
+        res.status(200).json(viewRecipe)
+    }catch(err){
+        res.status(401).json(err)
+    }
+}
