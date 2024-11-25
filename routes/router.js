@@ -28,5 +28,13 @@ router.post('/recipe/save',jwtMiddleware,saveRecipeController.addRecipeToSaveCol
 router.get('/all-saved-recipes',jwtMiddleware,saveRecipeController.getUserSaveRecipeController)
 //saved-recipe/id/remove
 router.delete('/saved-recipe/:id/remove',jwtMiddleware,saveRecipeController.removeSaveRecipeController)
+//all-users
+router.get('/all-users',jwtMiddleware,userController.getAllUsersController)
+//all-downloads
+router.get('/all-downloads',jwtMiddleware,downloadController.allDownloadsController)
+//all-testimony
+router.get('/all-testimony',testimonyController.getAllTestimonyController)
+//testimony/id?status=Approved
+router.get('/testimony/:id',jwtMiddleware,testimonyController.updateStatusTestimonyController)
 
 module.exports = router

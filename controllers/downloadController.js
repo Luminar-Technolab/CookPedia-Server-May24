@@ -22,3 +22,14 @@ exports.addRecipetoDownloadController = async (req,res)=>{
         res.status(401).json(err)
     }
 }
+
+//get all downloads
+exports.allDownloadsController = async (req,res)=>{
+    console.log("Inside allDownloadsController");
+    try{
+        const allDownloads = await downloads.find()
+        res.status(200).json(allDownloads)
+    }catch(err){
+        res.status(401).json(err)
+    }
+}
