@@ -36,5 +36,7 @@ router.get('/all-downloads',jwtMiddleware,downloadController.allDownloadsControl
 router.get('/all-testimony',testimonyController.getAllTestimonyController)
 //testimony/id?status=Approved
 router.get('/testimony/:id',jwtMiddleware,testimonyController.updateStatusTestimonyController)
+//add-recipe
+router.post('/add-recipe',jwtMiddleware,recipeController.addRecipeController)
 
 module.exports = router
