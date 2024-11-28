@@ -61,6 +61,22 @@ exports.addRecipeController = async (req,res)=>{
     }
 }
 
+//editrecipe
+exports.editRecipeController = async (req,res)=>{
+    console.log("Inside editRecipeController");
+    const {name,ingredients,instructions,prepTimeMinutes,cookTimeMinutes,servings,difficulty,cuisine,caloriesPerServing,image,mealType} = req.body
+    const {id} = req.params
+    try{
+        const updatedRecipe = await recipes.findByIdAndUpdate({_id:id},{
+            name,ingredients,instructions,prepTimeMinutes,cookTimeMinutes,servings,difficulty,cuisine,caloriesPerServing,image,mealType
+        },{new:true})
+        await updatedRecipe.save()
+        res.status(200).json(updatedRecipe)
+    }catch(err){
+        res.status(401).json(err)
+    }
+}
+
 //remove recipe
 exports.removeRecipeController = async (req,res)=>{
     console.log("inside removeRecipeController");
