@@ -58,3 +58,19 @@ exports.getAllUsersController = async (req,res)=>{
         res.status(401).json(err)
     }
 }
+
+//update profile
+exports.editProfileController = async (req,res)=>{
+    console.log("Inside editProfileController");
+    const id = req.userId
+    const {profilePic} = req.body
+    try{
+        const existingUser = await users.findById({_id:id})
+        existingUser.profilePic = profilePic
+        await existingUser.save()
+        res.status(200).json(existingUser)
+    }catch(err){
+        res.status(401).json(err)
+    }
+    
+}

@@ -42,5 +42,7 @@ router.post('/add-recipe',jwtMiddleware,recipeController.addRecipeController)
 router.delete('/recipe/:id/remove',jwtMiddleware,recipeController.removeRecipeController)
 //update-recipe
 router.put('/recipe/:id/edit',jwtMiddleware,recipeController.editRecipeController)
+//update-user
+router.put('/user/edit',jwtMiddleware,userController.editProfileController)
 
 module.exports = router
